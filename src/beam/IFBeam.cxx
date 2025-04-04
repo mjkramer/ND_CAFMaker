@@ -56,6 +56,9 @@ namespace cafmaker
       double max_time = std::numeric_limits<double>::lowest();
       for (const auto& group : groupedTriggers) {
           for (const auto& trig : group) {
+              // HACK
+              if (trigger_time > 1e12)
+                  continue;
               double trigger_time = util::getTriggerTime(trig.second);
               min_time = std::min(min_time, trigger_time - dt);
               max_time = std::max(max_time, trigger_time + dt);
