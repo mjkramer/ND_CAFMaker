@@ -20,6 +20,11 @@ namespace cafmaker
   class H5DataViewBase
   {
     public:
+      H5DataViewBase()
+      {
+        invalidate();
+      }
+
       H5DataViewBase(const IH5Viewer * viewer);
 
       // the IH5Viewer needs to find out about the new object when copying
@@ -48,11 +53,6 @@ namespace cafmaker
     friend class IH5Viewer;
 
     public:
-      H5DataView()
-      {
-        invalidate();
-      }
-
       const std::vector<T> & operator*() const
       {
         if(valid())
