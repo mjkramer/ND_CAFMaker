@@ -173,8 +173,10 @@ namespace cafmaker
     sr.meta.lar2x2.readoutstart_ns = trigger.triggerTime_ns;
 
     H5DataView<cafmaker::types::dlp::Interaction> interactions = fDSReader.GetProducts<cafmaker::types::dlp::Interaction>(idx);
-    H5DataView<cafmaker::types::dlp::TrueInteraction> trueInteractions = fDSReader.GetProducts<cafmaker::types::dlp::TrueInteraction>(idx);
-    H5DataView<cafmaker::types::dlp::TrueParticle> trueParticles = fDSReader.GetProducts<cafmaker::types::dlp::TrueParticle>(idx);
+    // H5DataView<cafmaker::types::dlp::TrueInteraction> trueInteractions = fDSReader.GetProducts<cafmaker::types::dlp::TrueInteraction>(idx);
+    // H5DataView<cafmaker::types::dlp::TrueParticle> trueParticles = fDSReader.GetProducts<cafmaker::types::dlp::TrueParticle>(idx);
+    H5DataView<cafmaker::types::dlp::TrueInteraction> trueInteractions = H5DataView<cafmaker::types::dlp::TrueInteraction>();
+    H5DataView<cafmaker::types::dlp::TrueParticle> trueParticles = H5DataView<cafmaker::types::dlp::TrueInteraction>();
     FillInteractions(interactions, trueInteractions, trueParticles, truthMatcher, sr);
 
     H5DataView<cafmaker::types::dlp::Particle> particles = fDSReader.GetProducts<cafmaker::types::dlp::Particle>(idx);

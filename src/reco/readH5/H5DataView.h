@@ -48,6 +48,11 @@ namespace cafmaker
     friend class IH5Viewer;
 
     public:
+      H5DataView()
+      {
+        invalidate();
+      }
+
       const std::vector<T> & operator*() const
       {
         if(valid())
