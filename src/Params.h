@@ -56,8 +56,8 @@ namespace cafmaker
     fhicl::Atom<int>  numevts { fhicl::Name("NumEvts"), fhicl::Comment("Number of events to process (-1 means 'all')"), -1 };
     fhicl::Atom<int>  seed    { fhicl::Name("Seed"), fhicl::Comment("Random seed to use"), -1 };  // use the run number by default
 
-    // 100 us is default
-    fhicl::Atom<unsigned int>  trigMatchDT { fhicl::Name("TriggerMatchDeltaT"), fhicl::Comment("Maximum time difference, in ns, between triggers to be considered a match"), 100000 };
+    // 1 ms is default (was 100 us, but Mx2 matching is working better with 1 ms)
+    fhicl::Atom<unsigned int>  trigMatchDT { fhicl::Name("TriggerMatchDeltaT"), fhicl::Comment("Maximum time difference, in ns, between triggers to be considered a match"), 1000000 };
 
     // 0.1 s is default
     fhicl::Atom<float>  beamMatchDT { fhicl::Name("BeamMatchDeltaT"), fhicl::Comment("Maximum time difference, in s, between triggers and beam"), 0.1 };
