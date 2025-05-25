@@ -1,5 +1,9 @@
 #include "MINERvARecoBranchFiller.h"
 
+// 0.19s offset (vs 2x2) extracted from data
+// (code below will need to be modified if offset is ever negative)
+static const unsigned MX2_TIME_OFFSET_NS = 193'650'000;
+
 namespace cafmaker
 {
 
@@ -563,6 +567,11 @@ namespace cafmaker
         trig.triggerTime_s = ev_gps_time_sec;
         trig.triggerTime_ns = ev_gps_time_usec * 1000.;
 
+        // Correct for offset between Mx2 and 2x2 times
+        if (trig.triggerTime_ns < MX2_TIME_OFFSET_NS) {
+          trig.triggerTime_s -= 1;
+          trig.triggerTime_ns += 1'000'000'000 - MX2_TIME_OFFSET_NS;
+        } else trig.triggerTime_ns -= MX2_TIME_OFFSET_NS;
 
         //Initialize first trigger at 0 while we don't have a global time strategy
         

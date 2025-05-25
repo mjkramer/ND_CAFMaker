@@ -491,8 +491,8 @@ namespace cafmaker
 	    trig.evtID = m_eventId;
 	    // Type
 	    if (m_triggerType == 5) trig.triggerType = Trigger::TriggerType::beamTrigger;
-        else if (m_triggerType == 6) trig.triggerType = Trigger::TriggerType::lightTrigger2x2;
-        else trig.triggerType = Trigger::TriggerType::selfTrigger2x2;
+	    else if (m_triggerType == 6) trig.triggerType = Trigger::TriggerType::lightTrigger2x2;
+	    else trig.triggerType = Trigger::TriggerType::selfTrigger2x2;
 	    // unix_ts trigger time (seconds)
 	    trig.triggerTime_s = m_unixTime;
 	    // ts_start ticks (0.1 microseconds) converted to nanoseconds
