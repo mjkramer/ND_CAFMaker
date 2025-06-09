@@ -155,7 +155,7 @@ namespace cafmaker
         Trigger & trig      = fTriggers.back(); // trigger we're working on
 
         trig.evtID = entry;
-        trig.triggerType = 0; //2147483647; // TODO real number?
+        trig.triggerType = Trigger::TriggerType::beamTrigger; // TODO: Get from file
 
         if (entry == 0) // TODO do this less bad
           trig.triggerTime_ns = 0;
